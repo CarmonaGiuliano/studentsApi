@@ -2,7 +2,7 @@ const express = require('express');
 const api = express();
 const mongoose = require('mongoose');
 const routes = require('./routes/apiroutes');
-const DBURI = 'mongodb+srv://ramoncarmona:da8189za1215@myfirstnode.wihlb.mongodb.net/school?retryWrites=true&w=majority';
+const DBURI = 'mongodb+srv://ramoncarmona:<password>@myfirstnode.wihlb.mongodb.net/school?retryWrites=true&w=majority';
 const bodyParser = require('body-parser');
 
 // connecting atlas
