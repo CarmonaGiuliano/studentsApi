@@ -231,17 +231,17 @@ StudentGrade.findById(req.params.id).then((result)=>{
 
 }
 
-const getStudentAvarage = async (req, res, next)=>{
+const getStudentAverage = async (req, res, next)=>{
 
   try{
     var sum = 0;
-    var avarege = 0;
+    var average = 0;
     var grades = await StudentGrade.find({name: req.body.name, subject: req.body.subject}).exec();
       if(grades.length !== 0){
         grades.forEach((grade) => {
            sum = grade.value + sum;
            //there is 5 types of assessment for each suject
-           avarage = sum/5;
+           average = sum/5;
    });
 
     }else{
@@ -249,7 +249,7 @@ const getStudentAvarage = async (req, res, next)=>{
       throw new Error('Student or Subject not found');
  }
 
-    res.json({studentAvarage: avarage});
+    res.json({studentAverage: average});
 
   }catch(err){
     next(err);
@@ -259,12 +259,12 @@ const getStudentAvarage = async (req, res, next)=>{
 
 
 
-const getSubjectAvarage = async (req,res,next) =>{
+const getSubjectAverage = async (req,res,next) =>{
 
   try{
 
     var sum = 0;
-    var avarage = 0;
+    var average = 0;
     var students = [];
 
     var subjects = await StudentGrade.find({subject: req.body.subject}).exec();
@@ -275,7 +275,7 @@ const getSubjectAvarage = async (req,res,next) =>{
                students.push(grade.name);
           }
           sum = grade.value + sum;
-          avarage = sum/(students.length * 5);
+          average = sum/(students.length * 5);
      });
 
     }else{
@@ -283,7 +283,7 @@ const getSubjectAvarage = async (req,res,next) =>{
        throw new Error('Subject not found');
    }
 
-    res.json({subjectAvarage: avarage});
+    res.json({subjectAverage: average});
 
   }catch(err){
     next(err);
@@ -299,6 +299,6 @@ module.exports = {deleteById,
                   updateToNewGrade,
                   updateAnOldGrade,
                   searchGrade,
-                  getStudentAvarage,
-                  getSubjectAvarage
+                  getStudentAverage,
+                  getSubjectAverage
                  };
