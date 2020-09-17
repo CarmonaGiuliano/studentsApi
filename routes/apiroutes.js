@@ -19,9 +19,9 @@ router.patch('/grades/update/:id', controllers.updateAnOldGrade);
 
 router.get('/grades/search/:id', controllers.searchGrade);
 
-router.get('/grades/studentavarage', controllers.getStudentAvarage);
+router.get('/grades/studentaverage', controllers.getStudentAverage);
 
-router.get('/grades/subjectavarage', controllers.getSubjectAvarage);
+router.get('/grades/subjectaverage', controllers.getSubjectAverage);
 
 
 module.exports = router;
